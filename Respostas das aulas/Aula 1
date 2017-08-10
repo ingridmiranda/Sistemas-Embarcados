@@ -11,7 +11,7 @@ Portanto, é um sistema microprocessado no qual o computador é completamente en
   As montadoras investem muito capital a fim de equipar os veículos com o que há de mais moderno em sistemas eletrônicos, o que inclui itens de conforto, navegação e segurança. Entre esses dispositivos automotivos destaca-se:
 sistemas de GPS e navegação, controle de motor e injeção eletrônica, alarmes, controle de transmissão, sistemas em tempo real como freios ABS e airbags, controle de tração, sistemas de entretenimento e painel de instrumentos  
 	
-    (b) Para eletrodomésticos;
+    	(b) Para eletrodomésticos;
   Estão muito presentes em controladores eletrônicos de eletrodomésticos tais como fornos micro-ondas, máquinas de lavar, aparelhos de TV com controle remoto, DVD players, refrigeradores e aparelhos de ar condicionado mais modernos, etc.
 	
 	(c) Para automação industrial.
@@ -27,3 +27,4 @@ SoCs - System-on-Chip.
 MPSoCs: Multiple Processor System-on-Chip.
 
 5. Por que usamos o Raspberry Pi na disciplina, ao invés de outro system-on-chip?
+O Raspberry Pi é bastante focado na área educacional, é de baixo custo e é compatível com uma quantidade de sistemas operacionais muito grande, tais como, Raspbian, GNU/Linux, Android e XBMC.
