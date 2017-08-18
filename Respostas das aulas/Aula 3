@@ -106,15 +106,31 @@ $ Numero de entradas = 2
 #include <stdlib.h>
 
 int main(int argc, char **argv) {
+	int cont;
+	cont = (argc-1);
 	printf("Olá, %s\n", argv[1]);
-	printf("Número de entradas: %d\n", argc);
+	printf("Número de entradas: %d\n", cont);
 	return 0;
 }
-
 
 7 - Crie um código em C que imprime todos os argumentos de entrada fornecidos pelo usuário. Por exemplo, considerando que o código criado recebeu o nome de 'ola_argumentos':
 $ ./ola_argumentos Eu Mesmo e Minha Pessoa
 $ Argumentos: Eu Mesmo e Minha Pessoa
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char **argv) {
+	int cont;
+	cont = (argc-1);
+	printf("Olá, ");
+	for (cont=1; cont<argc; cont++){
+	printf(" %s", argv[cont]);
+	}
+	printf("\n");
+	return 0;
+}
+
 
 8 - Crie uma função que retorna a quantidade de caracteres em uma string, usando o seguinte protótipo: int Num_Caracs(char *string); Salve-a em um arquivo separado chamado 'num_caracs.c'. Salve o protótipo em um arquivo chamado 'num_caracs.h'. Compile 'num_caracs.c' para gerar o objeto 'num_caracs.o'.
 
