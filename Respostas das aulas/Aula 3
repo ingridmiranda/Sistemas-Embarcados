@@ -134,6 +134,17 @@ int main(int argc, char **argv) {
 
 8 - Crie uma função que retorna a quantidade de caracteres em uma string, usando o seguinte protótipo: int Num_Caracs(char *string); Salve-a em um arquivo separado chamado 'num_caracs.c'. Salve o protótipo em um arquivo chamado 'num_caracs.h'. Compile 'num_caracs.c' para gerar o objeto 'num_caracs.o'.
 
+#include "num_caracs.h"
+
+int Num_Caracs(char *string){
+	int cont;
+	for(cont=0; string[cont]!='\0'; cont++){
+		cont ++;
+	}
+	return cont;
+}
+
+
 9 - Re-utilize o objeto criado na questão 8 para criar um código que imprime cada argumento de entrada e a quantidade de caracteres de cada um desses argumentos. Por exemplo, considerando que o código criado recebeu o nome de 'ola_num_caracs_1':
 
 $ ./ola_num_caracs_1 Eu Mesmo
@@ -141,7 +152,31 @@ $ Argumento: ./ola_num_caracs_1 / Numero de caracteres: 18
 $ Argumento: Eu / Numero de caracteres: 2
 $ Argumento: Mesmo / Numero de caracteres: 5
 
+#include <stdio.h>
+#include <stdlib.h>
+#include "Num_Caracs.h"
+
+int main(int argc, char **argv){
+
+int i = 0;
+for (i=0; i<argc; i++){
+	printf ("Argumento: %s / Número de caracteres: %d \n", argv[i], Num_Caracs(argv[i]));
+	}
+return 0;
+}	
+
+
 10 - Crie um Makefile para a questão anterior.
+
+Num_Caracs: ola_num_caracs_1.o Num_Caracs.o
+	gcc $(CFLAGS) -o ola_num_caracs_1 ola_num_caracs_1.o Num_Caracs.o
+ola_num_caracs_1.o: ola_num_caracs_1.c Num_Caracs.h
+	gcc $(CFLAGS) -c ola_num_caracs_1.c
+Num_Caracs.o: Num_Caracs.c Num_Caracs.h
+	gcc $(CFLAGS) -c Num_Caracs.c
+clean:
+	rm -f *.o ola_num_caracs_1
+
 
 11 - Re-utilize o objeto criado na questão 8 para criar um código que imprime o total de caracteres nos argumentos de entrada. Por exemplo, considerando que o código criado recebeu o nome de 'ola_num_caracs_2':
 
