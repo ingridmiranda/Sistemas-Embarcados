@@ -1,0 +1,61 @@
+
+
+  1 - Considerando a biblioteca-padrão da linguagem C, responda:
+
+(a) Quais são as funções (e seus protótipos) para abrir e fechar arquivos?
+  fopen: FILE *fopen (char *nome_do_arquivo, char *modo). 
+    Ex: FILE *fp
+    fp = fopen("exemplo.bin","wb")
+  fclose: int fclose (FILE *ponteiro_para_arquivo).
+    Ex: fclose(fp)
+  
+(b) Quais são as funções (e seus protótipos) para escrever em arquivos?
+  putc: int putc (int ch, FILE *fp).
+    Ex: for(i=0; string[i]; i++) putc(string[i], fp)
+  fprintf
+  
+(c) Quais são as funções (e seus protótipos) para ler arquivos?
+  getc: int getc (FILE *fp).
+    Ex: while((c = getc(fp))!= EOF)
+          printf("%c", c)
+  fscanf
+  
+(d) Quais são as funções (e seus protótipos) para reposicionar um ponteiro para arquivo?
+  fseek: int fseek (FILE * stream, long int offset, int origin)
+  
+(e) Quais bibliotecas devem ser incluídas no código para poder utilizar as funções acima?
+#include <stdio.h>	// Para as funções acima
+#include <stdlib.h>	// Para a função exit()
+  
+  2 - O que é a norma POSIX?
+    POSIX (Portable Operating System Interface). É constituído por uma série de regras que determinam como um programador pode
+  escrever o código-fonte de seu sistema de modo que ele seja portável entre os sistemas operacionais baseados no Unix.
+  
+  3 - Considerando a norma POSIX, responda:
+
+(a) Quais são as funções (e seus protótipos) para abrir e fechar arquivos?
+  open: int open (const char* path, int oflag, ...)
+    Ex: int fd = open("/tmp/teste.txt", O_WRONLY)
+        int fd = open("/tmp/teste.txt", O_RDWR | O_CREAT)
+  close: int close (int fildes)
+    Ex: int iStatus = close(fd)
+
+(b) Quais são as funções (e seus protótipos) para escrever em arquivos?
+  write: ssize_t write (int fildes, const void 8buf, size_t nbyte)
+    Ex: short siX16 = 0x7FFF
+    int res - write(fid, &siX16, sizeof(short))
+  
+(c) Quais são as funções (e seus protótipos) para ler arquivos?
+  read: ssize_t read (int fildes, void *buf, size_t nbyte)
+    Ex: short siX16
+    int res = read (fid, &siX16, sizeof(short))
+    Ex2: read(fd, &c, 1)
+  
+(d) Quais são as funções (e seus protótipos) para reposicionar um ponteiro para arquivo?
+  lseek: off_t lseek (int fd, off_t offset, int whence)
+    Ex: lseek (fd, 6, SEEK_SET)
+
+
+(e) Quais bibliotecas devem ser incluídas no código para poder utilizar as funções acima?
+#include <fcntl.h>	// Para a funcao open()
+#include <unistd.h>	// Para a funcao close()
