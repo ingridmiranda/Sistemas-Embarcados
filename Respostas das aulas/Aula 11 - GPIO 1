@@ -5,7 +5,7 @@ R - Raspbian, Ubuntu, OSMC, Recalbox e Pidora.
 R - O Raspberry Pi depende de um cartão SD para instalar um sistema operacional. 
 
 3. Apresente 3 formas de desenvolvimento de software para o Raspberry Pi.
-
+R - Java, C e Python
 
 4. Apresente 3 formas de acesso remoto ao Raspberry Pi.
 R - Pode ser realizado via SSH. VNC, RDP
