@@ -1,0 +1,34 @@
+char nibble
+
+(nibble & 1)!=0
+
+#include biblioteca
+define EN 4
+define RS 27
+define D4 22
+define D5 23
+define D6 24
+define D7 25
+
+void config_pins(void){
+  setGPIO_Out(EN);
+  setGPIO_Out(RS);
+  setGPIO_Out(D4);
+  setGPIO_Out(D5);
+  setGPIO_Out(D6);
+  setGPIO_Out(D7);
+  }
+
+void free_pins(void){
+  unsetGPIO(EN);
+  unsetGPIO(RS);
+  unsetGPIO(D4);
+  unsetGPIO(D5);
+  unsetGPIO(D6);
+  unsetGPIO(D7);
+}
+
+in main ()
+
+  int pin=4;
+    if(setGPIO_Out(pin))
