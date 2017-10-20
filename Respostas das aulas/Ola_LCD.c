@@ -85,7 +85,8 @@ int main ()
   char str[200] = "12345";
   
   config_LCD();
-  while(strcmp(str, "EXIT")==0){
+  send_string("OLA LCD!", DADOS);
+  while(strcmp(str, "EXIT")!=0){
     puts("Digite uma palavra (EXIT para sair):");
     scanf("%s", str);
     clear_LCD();
