@@ -1,16 +1,19 @@
 gcc gpio_sysfs.c Ola_LCD.c -o olalcd
 
+#include "gpio_sysfs.h"
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 
-define EN 4
-define RS 27
-define D4 22
-define D5 23
-define D6 24
-define D7 25
-define DADO 1
-define COMANDO 0
+
+#define EN 4
+#define RS 27
+#define D4 22
+#define D5 23
+#define D6 24
+#define D7 25
+#define DADO 1
+#define COMANDO 0
 
 void config_pins(void){
   setGPIO_Out(EN);
