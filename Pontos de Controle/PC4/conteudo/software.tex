@@ -11,7 +11,7 @@ O algoritmo correspondente à essa parte está apresentado na Figura \ref{fig-Di
 	\label{fig-DiagramaSoftware}
 \end{figure}
 
-\subsubsection{Configurações necessárias}
+\subsection{Configurações necessárias}
 
 Para o código funcionar da maneira correta foi necessário adaptar algumas configurações da raspberry pi e dos dispositivos tais como a webcam utilizada como microfone.
 Então, para o reconhecimento de voz instalou-se a biblioteca libasound2-dev, o programa Julius e o pacote Quickstart-Linux.
@@ -19,7 +19,7 @@ E em relação ao microfone embutido na webcam Logitech c270 foi necessário che
 O primeiro consistiu em "lsusb", para checar se o dispositivo aparecia na lista. Logo após,  utilizar o comando "alsamixer" a fim de aumentar o volume do microfone. Depois o "arecord -l" para testar se o microfone estava realmente sendo reconhecido.
 E por fim, o "arecord -D plughw:1,0 test.wav" para gravar o som no arquivo test.wav, caso ao usar o comando "aplay test.wav" ouvir-se a gravação, o microfone está funcionando corretamente. 
 
-\subsubsection{Programa Julius}
+\subsection{Programa Julius}
 
 O Julius consiste em um programa com código aberto que é utilizado como decodificador para reconhecimento de fala. 
 Foi desenvolvido sob os sistemas operacionais Windows e Linux. Possui amplo vocabuláio, alto desempenho e versatilidade. 
@@ -27,20 +27,41 @@ Sendo possível executar o reconhecimento de voz tanto em tempo real com disposi
 Além disso, ele pode ser usado em conjunto com o software Coruja para adicionar a opção de reconhecimento de voz em português, tornando o programa mais acessível para os usuários.
 
 
-\subsubsection{Controle de reprodutor de música por comando de voz}
+\subsection{Controle de reprodutor de música por comando de voz}
 
 O programa ao ser executado procura pela entrada de áudio utilizada e o arquivo de configuração com extensão .jconf, local no qual são apontados quais devem ser os modelos acústicos e de linguagem a serem utilizados e o dicionário fonético que também é carregado. 
-Se o carregamento de tais arquivos ocorrer sem erros, o programa Julius entra um laço de repetição, onde cada ciclo termina com o fim da entrada de áudio do usuário. Por fim, para cada comando dado pelo indivíduo, o programa reconhece se alguma das palavras ditas está entre as opções de palavras relacionadas aos comandos e realiza as ações associadas.
+Se o carregamento de tais arquivos ocorrer sem erros, o programa Julius entra um laço de repetição, onde cada ciclo termina com o fim da entrada de áudio do usuário. Por fim, para cada comando dado pelo indivíduo, o programa reconhece se alguma das palavras ditas está entre as opções de palavras relacionadas aos comandos e realiza as ações associadas. Seu funcionamento pode ser observado na Figura \ref{fig-ComandoVoz}, a qual representa as palavras que o programa foi capaz de reconhecer.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[scale=0.3]{ComandoVoz}
+	\caption{Reconhecimento de voz feito pelo programa}
+	\label{fig-ComandoVoz}
+\end{figure}
 
 \subsection{Campainha que tira e envia foto ao ser acionada}
 
-Este programa consiste em uma campainha programada para tirar uma foto ao ser pressionada e em seguida enviar para um email predeterminado um aviso com tal foto anexada. Tal dispositivo pode auxiliar na segurança residencial e simplificar no cotidiano do usuário.  
-  
+Este programa consiste em uma campainha programada para tirar uma foto ao ser pressionada e em seguida enviar para um email predeterminado um aviso com tal foto anexada. Tal dispositivo pode auxiliar na segurança residencial e simplificar no cotidiano do usuário. O código correspondente ao seu funcionamento foi feito seguindo a lógica presente na Figura \ref{fig-DiagramaCampainha}. De modo que para testar o seu funcionamento utilizou-se um botão push button como acionador do sistema e para que a foto fosse tirada usou-se a mesma webcam Logitech c270. Para o envio do email escolheu-se como servidor o gmail e definiu-se a porta 465. O email enviado pelo programa pode ser visto na Figura \ref{fig-Email}, onde é possível observar que é enviada uma mensagem de alerta em conjunto com uma foto.
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[scale=0.5]{DiagramaCampainha}
+	\caption{Fluxograma do algoritmo}
+	\label{fig-DiagramaCampainha}
+\end{figure}
 
-\subsubsection{Resultados obtidos}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[scale=0.2]{Email}
+	\caption{Email enviado pelo programa}
+	\label{fig-Email}
+\end{figure}
+
+\subsection{Resultados obtidos}
 
 Com o código realizado até o momento, foi possível executar o programa "Rhythmbox" que é um player de música totalmente por meio de comandos de voz. 
 Dentre as ações estabelecidas estão a execução do programa, tocar uma música, pausar, passar para a próxima ou retornar para a anterior.
 De modo que para serem realizados estão entre as palavras de comando: play, next, previous, stop e show.
+Além disso, alcançou-se o funcionamento correto do sistema de campainha. De modo que ao ser pressionada está acionando a webcam para tirar foto, logo após salva e envia como anexo para o email do usuário, tal como planejado.
 
 
